@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psicologia Bevendo Acqua - Home</title>
+  <!-- nuovi CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/home.css"> <!-- Contiene anche gli stili per il modal -->
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- navbar -->
+  <div id="nav-placeholder"></div>
+
+  <div class="page-wrapper">
+    <div class="container">
+      <!-- Sezione Header -->
+      <div class="header-section fade-in">
+        <div class="text-content">
+          <h1>Psicologia<br>bevendo acqua</h1>
+          <p>Neanche qui siamo al classico.</p>
+          <!-- BOTTONE MODIFICATO: Testo e classe -->
+          <button class="video-button">Videomessaggio</button>
+        </div>
+        <figure class="image-content">
+          <img src="assets/freud_1.png" alt="Ritratto di Sigmund Freud">
+          <figcaption>Sigmund Freud ti dà il benvenuto.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Separator 1 -->
+      <div class="divider-container fade-in">
+        <span class="divider-text">Notebook dei corsi</span>
+      </div>
+
+      <!-- Sezione Selezione Anno -->
+      <div class="year-section-container fade-in" id="section-corsi">
+        <div class="year-image-column">
+          <div class="image-wrapper-relative">
+            <img src="assets/jung_1.png" alt="Presentazione Sezione Anni - Carl Jung" class="year-presentation-image year-image-square">
+            <p class="jung-quote" data-fulltext='"Gli archetipi? Li tengo in un notebook."'></p>
+          </div>
+        </div>
+        <div class="year-buttons-column">
+          <!-- Bottoni esistenti -->
+          <button class="year-button year-button-wider" onclick="window.location.href='notebook-primo-anno.html'">
+            <div class="year-number-wrapper">
+              <span class="year-number">1</span>
+              <span class="degree-symbol">°</span>
+            </div>
+            <span class="year-text">anno</span>
+          </button>
+          <button class="year-button year-button-wider" onclick="window.location.href='notebook-secondo-anno.html'">
+            <div class="year-number-wrapper">
+              <span class="year-number">2</span>
+              <span class="degree-symbol">°</span>
+            </div>
+            <span class="year-text">anno</span>
+          </button>
+          <button class="year-button year-button-wider" onclick="window.location.href='notebook-terzo-anno.html'">
+            <div class="year-number-wrapper">
+              <span class="year-number">3</span>
+              <span class="degree-symbol">°</span>
+            </div>
+            <span class="year-text">anno</span>
+          </button>
+
+          <!-- Contenitore Timeline (posizionato assolutamente) -->
+          <div class="timeline-container">
+              <div class="timeline-line-element"></div>
+              <div class="timeline-dot"></div>
+              <div class="timeline-dot"></div>
+              <div class="timeline-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Separator 2 -->
+      <div class="divider-container fade-in">
+        <span class="divider-text">Per non farci mancare niente</span>
+      </div>
+
+      <!-- Sezione Giochi PSI -->
+      <div class="giochi-section-container fade-in" id="section-giochi">
+        <a href="mahjong-psi.html" class="year-button game-button-square">
+            <span class="game-button-text">Mahjong<br><span class="psi-symbol">Ψ</span></span>
+        </a>
+        <img src="assets/piaget_1.png" alt="Ritratto di Jean Piaget" class="piaget-image">
+        <a href="tetris-psi.html" class="year-button game-button-square">
+             <span class="game-button-text">Tetris<br><span class="psi-symbol">Ψ</span></span>
+        </a>
+      </div>
+      <!-- Fine Sezione Giochi PSI -->
+
+    </div> <!-- Fine .container -->
+  </div> <!-- Fine .page-wrapper -->
+
+  <!-- footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- MODIFICATO: Struttura HTML per il Modal Video con SVG -->
+  <div id="video-modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+      <video id="freud-video" preload="metadata">
+         <source src="assets/freud_videomessaggio.mp4" type="video/mp4">
+         Il tuo browser non supporta il tag video.
+      </video>
+      <!-- Bottone di chiusura con SVG al posto del testo -->
+      <button class="modal-close-button" aria-label="Chiudi video">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Script JS centralizzato -->
+  <script src="js/script.js" defer></script>
+
+</body>
+</html>

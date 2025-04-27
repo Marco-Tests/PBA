@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psicologia Bevendo Acqua – Terzo Anno</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/terzo-anno.css"> <!-- CSS specifico per Terzo Anno -->
+
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- navbar -->
+  <div id="nav-placeholder"></div>
+
+  <div class="page-wrapper">
+    <div class="container">
+      <!-- Intestazione Pagina -->
+      <div class="page-header fade-in">
+        <h1>Notebook terzo anno</h1>
+      </div>
+
+      <!-- Griglia Corsi -->
+      <div class="course-grid fade-in">
+
+        <!-- Corso 1: Psicologia clinica avanzata -->
+        <div class="course-item">
+          <div class="course-description">
+            <p>Approfondimenti clinici: modelli, interventi e casi complessi</p>
+            <svg class="arrow arrow-right" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 25 Q 75 35, 140 25" stroke="#1d3557" fill="none" stroke-linecap="round"/>
+              <path d="M130 17 L 140 25 L 130 33" stroke="#1d3557" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="course-card">
+            <div class="card-content">
+              <h2>Psicologia clinica avanzata</h2>
+              <p class="card-description">Verso la pratica: analisi critica e strumenti avanzati.</p>
+              <a href="https://notebooklm.google.com/notebook/acfb298e-7923-4a43-bf76-61c620bb29d6" class="notebook-link">Vai al Notebook</a>
+            </div>
+            <img src="assets/loghi-corsi/Psicologia-clinica-avanzata.png" alt="Logo Corso" class="course-logo">
+          </div>
+        </div>
+
+        <!-- Corso 2: Psicologia del lavoro -->
+        <div class="course-item">
+           <div class="course-card">
+             <div class="card-content">
+               <h2>Psicologia del lavoro</h2>
+               <p class="card-description">Cosa succede quando le persone… lavorano insieme.</p>
+               <a href="https://notebooklm.google.com/notebook/303cb007-fc81-4e5e-a5b7-7694aeead425" class="notebook-link">Vai al Notebook</a>
+             </div>
+             <img src="assets/loghi-corsi/Psicologia-del-lavoro.png" alt="Logo Corso" class="course-logo">
+           </div>
+          <div class="course-description">
+            <p>Quando lavorare insieme non è così semplice (e nemmeno così ovvio)</p>
+            <svg class="arrow arrow-left" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M140 25 Q 75 35, 10 25" stroke="#1d3557" fill="none" stroke-linecap="round"/>
+                <path d="M20 17 L 10 25 L 20 33" stroke="#1d3557" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Corso 3: Psicologia della Salute e di Comunità -->
+        <div class="course-item">
+          <div class="course-description">
+            <p>Il benessere? Anche una questione di contesto</p>
+             <svg class="arrow arrow-right" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 25 Q 75 35, 140 25" stroke="#1d3557" fill="none" stroke-linecap="round"/>
+              <path d="M130 17 L 140 25 L 130 33" stroke="#1d3557" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="course-card">
+            <div class="card-content">
+              <h2>Psicologia della Salute e di Comunità</h2>
+              <p class="card-description">Il benessere individuale nel contesto sociale più ampio.</p>
+              <a href="https://notebooklm.google.com/notebook/8cb5016f-ede9-480c-9395-84fa94c2d269" class="notebook-link">Vai al Notebook</a>
+            </div>
+            <img src="assets/loghi-corsi/Psicologia-della-Salute-e-di-Comunità.png" alt="Logo Corso" class="course-logo">
+          </div>
+        </div>
+
+      </div> <!-- /.course-grid -->
+    </div> <!-- /.container -->
+  </div> <!-- /.page-wrapper -->
+
+  <!-- footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/script.js" defer></script>
+  <script>
+    // Carica navbar e footer
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('navbar.html').then(r => r.text()).then(h => document.getElementById('nav-placeholder').innerHTML = h);
+      fetch('footer.html').then(r => r.text()).then(h => document.getElementById('footer-placeholder').innerHTML = h);
+
+      // Applica animazione con ritardo
+      const fadeInElements = document.querySelectorAll('.fade-in');
+      fadeInElements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.15}s`; // Delay incrementale
+        el.style.opacity = '0'; // Inizia nascosto
+      });
+    });
+  </script>
+</body>
+</html>
