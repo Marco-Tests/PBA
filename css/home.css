@@ -1,0 +1,502 @@
+/* home.css - Font separatori aggiornato, spazi verticali sezione anni bilanciati, aggiunti stili modal */
+
+/* ---------- Sezione Header (BOTTONE RINOMINATO) ---------- */
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 80px;
+    width: 100%;
+    min-height: 70vh;
+    padding: 70px 0 0 0;
+}
+.text-content  { flex: 1; min-width: 320px; }
+.image-content {
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    margin: 0;
+    background-color: #fff;
+    padding: 10px 10px 15px;
+    max-width: 350px;
+}
+.image-content img        { max-width: 100%; height: auto; display: block; border-radius: 5px; margin-bottom: 10px; }
+.image-content figcaption { font-size: .85em; color: #6c757d; text-align: center; }
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.8em;
+    color: #1d3557;
+    margin: 0 0 25px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+.text-content p {
+    font-size: 1.2em;
+    color: #495057;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+/* Selettore bottone aggiornato da .explore-button a .video-button */
+.video-button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 16px 38px;
+    border-radius: 7px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    box-shadow: none;
+    letter-spacing: .4px;
+}
+.video-button:hover {
+    background-color: #004a99;
+    box-shadow: 0 4px 12px rgba(0,74,153,.25);
+    transform: translateY(-2px);
+}
+
+/* ---------- Separatore con testo ---------- */
+.divider-container {
+    display: flex;
+    align-items: center;
+    width: 65%;
+    margin: 90px auto;
+    gap: 15px;
+}
+.divider-container:nth-of-type(2) {
+    margin-bottom: 0px;
+}
+.divider-container::before,
+.divider-container::after {
+    content: '';
+    flex-grow: 1;
+    height: 2px;
+    background-color: #1d3557;
+    opacity: 0.35;
+}
+.divider-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.3em;
+    color: #1d3557;
+    white-space: nowrap;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+/* ---------- Sezione selezione anno ---------- */
+.year-section-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    width: 100%;
+    padding-bottom: 60px;
+}
+#section-corsi {
+    margin-top: 125px;
+    margin-bottom: -20px;
+}
+.year-image-column {
+    flex: 0 0 45%;
+    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-wrapper-relative { position: relative; width: 100%; display: block; }
+.year-presentation-image.year-image-square {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+.jung-quote {
+    position: absolute;
+    top: -20px;
+    right: -15px;
+    background-color: #f0ede6;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    font-size: 0.9em;
+    color: #495057;
+    max-width: 180px;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.4;
+    z-index: 5;
+    border: 1px solid #d8d5cb;
+}
+.year-buttons-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+.year-button {
+    background-color: #fff;
+    border: 1px solid #d8d5cb;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,.07);
+    transition: all .25s ease-out;
+    color: #1d3557;
+    position: relative;
+    z-index: 3;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.year-button.year-button-wider {
+    padding: 22px 30px;
+    width: 320px;
+    min-height: 145px;
+    justify-content: center;
+}
+.year-button:hover {
+    box-shadow: 0 9px 22px rgba(0,0,0,.1);
+    transform: translateY(-5px);
+    border-color: #c3bfb4;
+    color: #1d3557;
+}
+.year-number-wrapper { position: relative; display: inline-block; margin-bottom: 8px; }
+.year-number   { font-size: 4.25em; font-weight: bold; color: #0056b3; display: inline-block; line-height: 1; transition: color .25s ease-out; }
+.degree-symbol { position: absolute; font-size: 3.0em; font-weight: bold; color: #0056b3; top: .06em; right: -0.5em; line-height: 1; }
+.year-text     { font-size: 1.1em; color: #0062cc; display: block; margin-top: 5px; line-height: 1.2; font-weight: 400; }
+
+/* ---------- Stili Timeline ---------- */
+.timeline-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    margin-left: -20px;
+    width: 15px;
+    display: block;
+    z-index: 0;
+}
+.timeline-line-element {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    background-color: #adb5bd;
+    border-radius: 2px;
+    z-index: 1;
+    visibility: hidden;
+}
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background-color: #adb5bd;
+    border-radius: 50%;
+    z-index: 2;
+    visibility: hidden;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.timeline-dot.dot-active {
+    background-color: #1d3557;
+    transform: translate(-50%, -50%) scale(1.4);
+    z-index: 4;
+}
+
+/* ---------- Sezione Giochi PSI ---------- */
+.giochi-section-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+    padding-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+.piaget-image {
+    display: block;
+    height: 1000px;
+    width: auto;
+    max-width: 42%;
+    flex-shrink: 0;
+    object-fit: contain;
+    align-self: center;
+    margin-top: -190px;
+    margin-bottom: -150px;
+    position: relative;
+    z-index: 1;
+}
+.game-button-square {
+    width: 280px;
+    height: 280px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    min-height: auto;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    z-index: 2;
+}
+.game-button-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 2.7em;
+    font-weight: 700;
+    color: #0062cc;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    display: block;
+}
+.psi-symbol {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: #0056b3;
+    display: block;
+    margin-top: 0;
+    line-height: 1;
+}
+
+
+/* ---------- NUOVI STILI: Modal Video (AGGIORNATO BOTTONE CHIUSURA con SVG) ---------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(29, 53, 87, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-overlay.modal-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0s linear 0s;
+}
+
+/* Contenitore del video */
+.modal-content {
+  position: relative; /* Necessario per posizionare il bottone figlio */
+  background-color: #1d3557;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Stile per il video stesso */
+.modal-content video {
+  display: block;
+  max-width: 100%;
+  max-height: calc(90vh - 4px);
+}
+
+/* Bottone di chiusura (MODIFICATO per SVG) */
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;  /* Dimensione del bottone */
+  height: 35px;
+  background-color: rgba(231, 228, 218, 0.8);
+  color: #1d3557; /* Colore ereditato da SVG con fill="currentColor" */
+  border: 1.5px solid #1d3557;
+  border-radius: 50%;
+  /* Flexbox per centrare l'SVG */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2010;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0; /* Rimuovere padding */
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+  /* Rimuovere font-size e font-weight specifici per la 'X' testuale */
+}
+
+/* Stile per l'SVG dentro il bottone */
+.modal-close-button svg {
+  display: block; /* Assicura che non ci sia spazio extra */
+  width: 60%;    /* Dimensione dell'icona SVG relativa al bottone */
+  height: 60%;   /* Mantiene l'aspect ratio definito nel viewBox */
+}
+
+
+.modal-close-button:hover {
+  background-color: rgba(253, 251, 245, 0.95);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+
+/* ---------- Media query specifiche home (AGGIORNATE VALORI FINALI + Modal) ---------- */
+@media (max-width: 1200px) {
+    /* Layout Originale */
+    .header-section { min-height: 65vh; gap: 60px; padding: 60px 0 0 0; }
+    h1              { font-size: 4.2em; }
+    .image-content  { max-width: 310px; }
+    .video-button   { padding: 15px 36px; font-size: 1.05em; }
+    .divider-container { width: 70%; margin: 80px auto; }
+    .divider-container:nth-of-type(2) { margin-bottom: 0px; }
+    .divider-text      { font-size: 1.2em; }
+    .year-section-container { gap: 60px; padding-bottom: 50px; }
+    .year-image-column  { flex-basis: 45%; max-width: 400px; }
+    .jung-quote         { right: -10px; top: -15px; font-size: 0.85em; padding: 8px 12px; max-width: 160px; }
+    .year-buttons-column{ gap: 25px; }
+    .year-button.year-button-wider { width: 300px; min-height: 135px; padding: 22px 30px; justify-content: center;}
+    .year-number        { font-size: 3.8em; }
+    .degree-symbol      { font-size: 2.8em; }
+    .year-text          { font-size: 1.05em; }
+    .timeline-container { margin-left: -25px; width: 14px; }
+    .timeline-line-element { width: 3px; }
+    .timeline-dot { width: 14px; height: 14px; }
+    #section-corsi { margin-top: 100px; margin-bottom: -20px; }
+    .giochi-section-container { gap: 2px; padding-bottom: 0px; margin-bottom: 0px; }
+    .piaget-image { height: 800px; max-width: 40%; margin-top: -150px; margin-bottom: -120px;}
+    .game-button-square { width: 250px; height: 250px; padding-left: 20px; padding-right: 20px; padding-top: 90px; padding-bottom: 20px;}
+    .game-button-text { font-size: 2.35em; font-weight: 700; margin-bottom: 6px;}
+    .psi-symbol { font-size: 0.68em; }
+
+    /* Modal Video */
+    .modal-content { max-width: 90vw; max-height: 85vh; }
+    .modal-close-button { top: 12px; right: 12px; width: 33px; height: 33px; }
+    /* SVG size adjustment could go here if needed */
+}
+
+@media (max-width: 992px) {
+    /* Layout Originale */
+    .header-section  { min-height: 60vh; gap: 40px; padding: 50px 0 0 0; }
+    h1               { font-size: 3.6em; }
+    .image-content   { max-width: 280px; }
+    .text-content p  { font-size: 1.1em; }
+    .video-button    { padding: 14px 34px; font-size: 1.05em; }
+    .divider-container { width: 75%; margin: 70px auto; }
+    .divider-container:nth-of-type(2) { margin-bottom: 0px; }
+    .divider-text      { font-size: 1.15em; }
+    .year-section-container { flex-direction: column; gap: 40px; padding-bottom: 40px; align-items: center; }
+    .year-image-column { flex-basis: auto; width: 80%; max-width: 350px; margin-bottom: 10px; order: 1; }
+    .jung-quote        { top: -10px; right: 5px; font-size: 0.8em; padding: 6px 10px; max-width: 140px; }
+    .year-buttons-column { width: 100%; align-items: center; gap: 20px; order: 2; }
+    .year-button.year-button-wider { width: 90%; max-width: 360px; min-height: 115px; padding: 22px 30px; justify-content: center;}
+    .year-number      { font-size: 3.6em; }
+    .degree-symbol    { font-size: 2.6em; }
+    .year-text        { font-size: 1.1em; }
+    .timeline-container { left: auto; right: 100%; margin-left: 0; margin-right: -25px; width: 12px; }
+    .timeline-line-element { width: 2px; }
+    .timeline-dot { width: 12px; height: 12px; }
+    #section-corsi { margin-top: 80px; margin-bottom: -20px; }
+    .giochi-section-container { flex-direction: column; gap: 20px; padding-bottom: 0px; margin-bottom: 0px; align-items: center; overflow: visible; }
+    .piaget-image { order: 1; height: auto; max-height: 650px; max-width: 70%; margin-bottom: 0px; margin-top: 0; }
+    .game-button-square { order: 2; width: 260px; height: 260px; padding-left: 20px; padding-right: 20px; padding-top: 98px; padding-bottom: 20px; margin: 0 auto 10px;}
+    .game-button-text { font-size: 2.45em; font-weight: 700; margin-bottom: 6px;}
+    .psi-symbol { font-size: 0.72em; }
+
+     /* Modal Video */
+    .modal-content { max-width: 92vw; max-height: 88vh; }
+    .modal-close-button { top: 10px; right: 10px; width: 32px; height: 32px; }
+    /* SVG size adjustment could go here if needed */
+}
+
+@media (max-width: 768px) {
+     /* Layout Originale */
+    .header-section { min-height: auto; flex-direction: column; text-align: center; padding: 40px 0 0 0; gap: 40px; }
+    .text-content   { order: 1; }
+    .image-content  { order: 2; max-width: 260px; margin-left: auto; margin-right: auto; }
+    h1              { font-size: 3.2em; }
+    .text-content p { font-size: 1.05em; margin-bottom: 35px; }
+    .video-button   { padding: 14px 34px; font-size: 1.05em; }
+    .divider-container { width: 85%; margin: 60px auto; gap: 10px; }
+    .divider-container:nth-of-type(2) { margin-bottom: 0px; }
+    .divider-container::before, .divider-container::after { height: 1px; }
+    .divider-text { font-size: 1.1em; }
+    .year-section-container { gap: 35px; padding-bottom: 30px; }
+    .year-image-column { width: 75%; max-width: 300px; }
+    .jung-quote { top: -8px; right: 0px; font-size: 0.75em; padding: 5px 8px; max-width: 120px; }
+    .year-buttons-column { gap: 18px; }
+    .year-button.year-button-wider { width: 90%; max-width: 320px; min-height: 105px; padding: 22px 30px; justify-content: center;}
+    .year-number { font-size: 3.2em; }
+    .degree-symbol { font-size: 2.4em; right: -0.48em; }
+    .year-text { font-size: 1.0em; }
+    .timeline-container { margin-right: -30px; width: 11px; }
+    .timeline-line-element { width: 2px; }
+    .timeline-dot { width: 11px; height: 11px; }
+    #section-corsi { margin-top: 60px; margin-bottom: -20px; }
+    .giochi-section-container { gap: 18px; padding-bottom: 0px; margin-bottom: 0px; }
+    .piaget-image { max-height: 550px; max-width: 75%; margin-bottom: 0px; margin-top: 0; }
+    .game-button-square { width: 240px; height: 240px; padding-left: 20px; padding-right: 20px; padding-top: 88px; padding-bottom: 20px; margin-bottom: 10px; }
+    .game-button-text { font-size: 2.15em; font-weight: 700; margin-bottom: 5px;}
+    .psi-symbol { font-size: 0.68em; }
+
+    /* Modal Video */
+    .modal-overlay { padding: 15px; }
+    .modal-content { max-width: 94vw; max-height: 85vh; border-radius: 12px; }
+    .modal-close-button { top: 8px; right: 8px; width: 30px; height: 30px; border-width: 1px;}
+    /* SVG size adjustment could go here if needed */
+}
+
+@media (max-width: 480px) {
+    /* Layout Originale */
+    h1 { font-size: 2.6em; }
+    .text-content p { font-size: 1em; }
+    .video-button   { padding: 12px 28px; font-size: 1em; }
+    .header-section { padding: 30px 0 0 0; gap: 35px; }
+    .image-content { max-width: 220px; }
+    .divider-container { width: 90%; margin: 50px auto; }
+    .divider-container:nth-of-type(2) { margin-bottom: 0px; }
+    .divider-text { font-size: 1.0em; }
+    .year-section-container { gap: 30px; padding-bottom: 25px; }
+    .year-image-column { width: 80%; max-width: 250px; }
+    .jung-quote { display: none; }
+    .year-buttons-column { gap: 15px; }
+    .year-button.year-button-wider{ width: 95%; max-width: 280px; min-height: 95px; padding: 22px 30px; justify-content: center;}
+    .year-number { font-size: 2.8em; }
+    .degree-symbol { font-size: 2.1em; right: -0.48em; top: 0.1em; }
+    .year-text { font-size: 0.9em; }
+    .timeline-container { display: none !important; }
+    #section-corsi { margin-top: 50px; margin-bottom: -20px; }
+    .giochi-section-container { gap: 15px; padding-bottom: 0px; margin-bottom: 0px; }
+    .piaget-image { max-height: 500px; max-width: 80%; margin-bottom: 0px; margin-top: 0; }
+    .game-button-square { width: 220px; height: 220px; padding-left: 18px; padding-right: 18px; padding-top: 78px; padding-bottom: 15px; margin-bottom: 5px; }
+    .game-button-text { font-size: 1.95em; font-weight: 700; margin-bottom: 4px;}
+    .psi-symbol { font-size: 0.62em; }
+
+    /* Modal Video */
+    .modal-overlay { padding: 10px; }
+    .modal-content { max-width: 96vw; max-height: 80vh; border-radius: 10px; }
+    /* Posizionamento bottone chiusura mobile */
+    .modal-close-button {
+        top: 6px;
+        right: 6px;
+        width: 28px;
+        height: 28px;
+    }
+    /* SVG size adjustment could go here if needed */
+}

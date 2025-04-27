@@ -1,0 +1,21 @@
+/* Reset base e stile corpo (MODIFICATO background per overscroll) */
+html {
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #1d3557; /* Sfondo overscroll = sfondo navbar/footer */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #1d3557; /* Sfondo fallback = sfondo navbar/footer */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

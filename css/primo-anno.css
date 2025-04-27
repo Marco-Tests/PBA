@@ -1,0 +1,241 @@
+/* ----- Intestazione pagina standard ----- */
+.page-header {
+    padding-bottom: 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+    width: 100%;
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    color: #1d3557;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* ----- Griglia Corsi ----- */
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 70px;
+}
+
+/* ----- Elemento Corso Singolo (Contenitore Card + Descrizione) ----- */
+.course-item {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+/* Layout alternato per elementi pari */
+.course-item:nth-child(even) {
+    grid-template-columns: 1.1fr 0.9fr;
+}
+
+/* ----- Card del Corso ----- */
+.course-card {
+    border: 2px solid #1d3557;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: #f8f7f2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 250px; /* Altezza minima potrebbe dover aumentare leggermente se il logo diventa troppo grande */
+}
+
+/* Contenitore per il testo dentro la card */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    height: 100%;
+    padding-right: 35px; /* MODIFICATO: Aumentato ancora lo spazio per il logo più grande */
+}
+
+.course-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #1d3557;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.course-card .card-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+    color: #495057;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Stile Bottone Notebook */
+.notebook-link {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 0.9em;
+    text-align: center;
+    align-self: flex-start;
+    text-decoration: none;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    box-shadow: none;
+}
+
+.notebook-link:hover {
+    background-color: #004a99;
+    box-shadow: 0 4px 12px rgba(0,74,153,.25);
+    transform: translateY(-2px);
+}
+
+/* Logo circolare nella card - MODIFICATO */
+.course-logo {
+    width: 125px; /* MODIFICATO: Logo ancora più grande */
+    height: 125px; /* MODIFICATO: Logo ancora più grande */
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid #d1ccc0;
+}
+
+/* ----- Descrizione Laterale e Freccia ----- */
+.course-description {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    color: #4a4a4a;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* MODIFICATO: Rimuove margine inferiore dal paragrafo per avvicinare la freccia */
+.course-description p {
+    margin-bottom: 5px; /* Riduce spazio sotto il testo */
+}
+
+/* Stile e posizionamento freccia modificato */
+.arrow {
+    display: block;
+    width: 140px;
+    height: auto;
+    margin: 0 auto; /* MODIFICATO: Rimosso margine superiore specifico, ora si attacca al testo */
+}
+.arrow path {
+    stroke-width: 3.5px;
+}
+
+/* Ordine per layout alternato: Sposta la descrizione a destra */
+.course-item:nth-child(even) .course-description {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.course-item:nth-child(even) .course-card {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 1200px) {
+    .page-header h1 { font-size: 3.2em; }
+    .course-card h2 { font-size: 1.6em; }
+    .course-description { font-size: 1.2em; }
+    .course-logo {
+        width: 105px; /* MODIFICATO: Ridimensiona logo proporzionalmente */
+        height: 105px; /* MODIFICATO: Ridimensiona logo proporzionalmente */
+    }
+    .course-card { min-height: 220px; padding: 25px; }
+    .card-content {
+        padding-right: 30px; /* MODIFICATO: Ridimensiona padding proporzionalmente */
+     }
+    .course-item { grid-template-columns: 1fr 1.1fr; }
+    .course-item:nth-child(even) { grid-template-columns: 1.1fr 1fr; }
+    .arrow { width: 120px; }
+}
+
+@media (max-width: 992px) {
+    .page-header {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .page-header h1 { font-size: 2.8em; }
+
+    .course-item,
+    .course-item:nth-child(even) {
+        grid-template-columns: 1fr !important;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .course-description {
+       grid-column: 1 / 2 !important;
+       grid-row: 1 / 2 !important;
+       padding: 0;
+    }
+    /* MODIFICATO: Riporta margine normale al paragrafo in layout stacked */
+    .course-description p {
+        margin-bottom: 1em; /* O il margine di default che preferisci */
+    }
+    .course-card {
+       grid-column: 1 / 2 !important;
+       grid-row: 2 / 3 !important;
+       min-height: auto;
+       flex-direction: column;
+       align-items: center;
+       padding: 25px;
+    }
+    .card-content {
+        width: 100%;
+        padding-right: 0;
+        align-items: center;
+        text-align: center;
+    }
+    .notebook-link {
+        align-self: center;
+        margin-top: 15px;
+    }
+
+    .arrow { display: none; } /* Freccia nascosta */
+    .course-logo { display: none; } /* Logo nascosto */
+
+    .course-card h2 { font-size: 1.5em; text-align: center; }
+    .course-card .card-description { font-size: 0.95em; margin-bottom: 15px; text-align: center;}
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .page-header h1 { font-size: 2.5em; }
+    .course-grid { gap: 45px; }
+    .course-item,
+    .course-item:nth-child(even) { gap: 20px; }
+    .course-description { font-size: 1.1em; }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 { font-size: 2.1em; }
+    .course-card { padding: 20px 25px; }
+    .course-card h2 { font-size: 1.4em; }
+    .course-card .card-description { font-size: 0.9em; }
+    .notebook-link { width: 100%; box-sizing: border-box; }
+}
+
+/* --- Animazioni --- */
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}

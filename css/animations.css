@@ -1,0 +1,13 @@
+/* --- Animazioni globali & classi di utilità --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.7s ease-out forwards; }
+
+/* Delay diversi per animazione sequenziale */
+.divider-container.fade-in                    { animation-delay: 0.1s; opacity: 0; }
+.year-section-container#section-corsi.fade-in { animation-delay: 0.2s; opacity: 0; }
+.divider-container:nth-of-type(2).fade-in     { animation-delay: 0.3s; opacity: 0; }
+.year-section-container#section-extra.fade-in { animation-delay: 0.4s; opacity: 0; }

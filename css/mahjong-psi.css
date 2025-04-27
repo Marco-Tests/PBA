@@ -1,0 +1,297 @@
+/* Stili specifici per la pagina Mahjong Psi */
+
+/* ----- Intestazione Pagina (Stile da riferimento) ----- */
+.page-header {
+  padding-bottom: 0;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5em;
+  color: #1d3557;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ----- Sezione Mahjong ----- */
+#mahjong-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px; /* Spazio sotto il gioco */
+}
+
+/* Area Informazioni e Controlli Gioco */
+#game-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px 25px;
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(29, 53, 87, 0.05);
+  border: 1px solid rgba(29, 53, 87, 0.1);
+  min-height: 50px;
+  width: 100%;
+  max-width: 950px; /* Mantiene larghezza controlli */
+  box-sizing: border-box;
+}
+
+/* Stile Pulsanti */
+#game-info button {
+  padding: 9px 16px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 0.9em;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: none;
+}
+
+#game-info button:hover:not(:disabled) {
+  background-color: #004a99;
+  box-shadow: 0 4px 12px rgba(0,74,153,.25);
+  transform: translateY(-2px);
+}
+
+#game-info button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Stile Testo Statistiche */
+#game-info .game-stat {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95em;
+  color: #495057;
+  margin: 0 5px;
+  white-space: nowrap;
+}
+#game-info .game-stat span {
+  font-weight: 700;
+  color: #1d3557;
+}
+
+/* Area Messaggi */
+#message-area {
+  font-weight: bold;
+  font-size: 0.95em;
+  text-align: center;
+  flex-basis: 100%;
+  margin-top: 5px;
+  min-height: 1.2em;
+}
+
+/* Area Errori Critici */
+#critical-error-area {
+  color: #dc3545;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  text-align: center;
+  width: 100%;
+  max-width: 950px;
+}
+
+/* Contenitore Gioco Mahjong (MODIFICATO stile) */
+#mahjong-game {
+  position: relative;
+  width: 100%;
+  max-width: 950px; /* Larghezza massima */
+  aspect-ratio: 950 / 650; /* Proporzioni leggermente aggiustate per scala maggiore */
+  height: auto;
+  /* background-color: #f0f2f5; Sfondo grigio chiaro neutro */
+  background-color: #f8f7f2; /* Sfondo crema chiaro (come card corsi) */
+  /* border: 1px solid #adb5bd; Bordo grigio chiaro */
+  border: 2px solid #d1ccc0; /* Bordo leggermente più scuro (come logo corsi) */
+  border-radius: 8px; /* Arrotondamento leggermente maggiore */
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombra leggera per staccare */
+}
+
+/* Tavola da Gioco Interna (MODIFICATO scale) */
+#game-board {
+  position: absolute; /* Assoluto rispetto a #mahjong-game */
+  /* Dimensioni non necessarie se left/top sono usati per posizionare */
+  /* width: 100%; */
+  /* height: 100%; */
+  transform-origin: center center; /* Scala dal centro */
+  /* Scala aumentata per riempire meglio il contenitore */
+  transform: scale(1.4); /* Valore iniziale per desktop */
+  /* Le tessere verranno posizionate con left/top in pixel dal JS */
+}
+
+
+/* Messaggio di Caricamento */
+#game-board .loading-message {
+  position: absolute; /* Per centrarlo rispetto a game-board */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.71); /* Scalato inverso per mantenere dimensione originale */
+  text-align: center;
+  color: #555;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2em; /* Leggermente più grande */
+  white-space: nowrap;
+}
+
+
+/* ----- Stili Tessere Mahjong (MODIFICATO PER IMMAGINI) ----- */
+.tile {
+  position: absolute;
+  /* Dimensioni FISSE in pixel (la scala del game-board le ingrandirà) */
+  width: 45px;
+  height: 65px;
+  background-color: #fdfdfa; /* Leggermente più bianco */
+  border: 1px solid #b0a99b; /* Bordo più definito */
+  border-bottom-width: 2px; /* Effetto spessore */
+  border-right-width: 2px;
+  border-radius: 4px;
+  box-shadow: 1.5px 1.5px 2px rgba(0,0,0,0.2); /* Ombra più sottile */
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out,
+              background-color 0.2s, opacity 0.3s ease-out, border 0.1s ease-in-out;
+  user-select: none;
+  overflow: hidden;
+
+  /* ---- MODIFICHE PER IMMAGINI ---- */
+  /* display: flex; justify-content: center; align-items: center; */ /* Non più necessario per il testo */
+  /* font-size: 22px; */ /* Rimosso, l'immagine ha la sua dimensione */
+  /* font-weight: bold; */ /* Rimosso */
+  /* color: #333; */ /* Rimosso */
+  /* font-family: sans-serif; */ /* Rimosso */
+
+  /* Stili per immagine di sfondo */
+  background-size: contain; /* Adatta l'immagine mantenendo le proporzioni */
+  background-repeat: no-repeat; /* Non ripetere l'immagine */
+  background-position: center center; /* Centra l'immagine */
+  /* L'immagine specifica viene impostata da JS */
+}
+
+.tile:not(.selectable) {
+  cursor: not-allowed;
+  background-color: #e8e8e0; /* Mantiene lo sfondo per stato non selezionabile */
+  /* color: #a0a0a0; */ /* Rimosso */
+  box-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.15); /* Ombra ridotta */
+  border-color: #c0c0c0;
+  /* Aggiungiamo un filtro per desaturare l'immagine di sfondo quando non selezionabile */
+  filter: grayscale(80%) opacity(70%);
+}
+
+.tile.selected {
+  border: 3px solid #d62828; /* Rosso più scuro */
+  box-shadow: 0 0 10px rgba(214, 40, 40, 0.6);
+  transform: scale(1.04); /* Leggero ingrandimento relativo alla scala base */
+  filter: none; /* Rimuovi filtri quando selezionato */
+  /* z-index già gestito da JS, ma si può forzare se necessario */
+  /* z-index: 1000 !important; */
+}
+
+.tile.hint {
+   border: 3px solid #0077cc; /* Blu più standard */
+   box-shadow: 0 0 10px rgba(0, 119, 204, 0.6);
+   filter: none; /* Rimuovi filtri quando suggerito */
+   /* z-index già gestito da JS */
+}
+
+.tile.removing {
+  opacity: 0;
+  transform: scale(0.9) translateY(-5px); /* Animazione rimozione */
+}
+
+/* --- Media query per aggiustamenti responsive --- */
+
+@media (max-width: 1200px) {
+   /* Riduci leggermente scala su schermi più piccoli */
+  #game-board {
+      transform: scale(1.3);
+  }
+  #mahjong-game {
+      max-width: 95%; /* Permetti leggermente più largo */
+  }
+   .page-header h1 { font-size: 3.2em; }
+}
+
+
+@media (max-width: 992px) {
+  .page-header h1 { font-size: 2.8em; }
+  #mahjong-game {
+      aspect-ratio: 950 / 700; /* Torna a proporzioni simili o leggermente più alte */
+  }
+  #game-board {
+      transform: scale(1.1); /* Scala ridotta per schermi medi */
+  }
+  .tile {
+      /* font-size: 20px; */ /* Rimosso */
+      width: 42px; height: 60px; /* Riduci leggermente dimensione base */
+  }
+  #game-info { gap: 10px 15px; padding: 12px; }
+  #game-info button { font-size: 0.85em; padding: 8px 14px; }
+  #game-info .game-stat { font-size: 0.9em; }
+  #message-area { font-size: 0.9em; }
+}
+
+@media (max-width: 768px) {
+  .page-header { margin-top: 40px; margin-bottom: 30px; }
+  .page-header h1 { font-size: 2.5em; }
+  #mahjong-game {
+       aspect-ratio: 950 / 750; /* Ancora più alta */
+       max-width: 100%; /* Usa tutta la larghezza */
+       border-radius: 0; /* Rimuovi bordi arrotondati su mobile? Opzionale */
+       border-left: none;
+       border-right: none;
+       box-shadow: none;
+  }
+  #game-board {
+      transform: scale(0.95); /* Scala ulteriormente ridotta */
+  }
+  .tile {
+      /* font-size: 18px; */ /* Rimosso */
+      width: 38px; height: 55px;
+      border-radius: 3px;
+      box-shadow: 1px 1px 1.5px rgba(0,0,0,0.18);
+  }
+  #game-info { flex-direction: column; gap: 12px; padding: 15px; align-items: stretch; max-width: 100%; border-radius: 0; }
+  #game-info button { width: 100%; box-sizing: border-box; }
+  #game-info .game-stat { text-align: center; }
+   #message-area { flex-basis: auto; margin-top: 5px; }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 { font-size: 2.1em; }
+   #mahjong-game {
+       aspect-ratio: 950 / 800;
+  }
+  #game-board {
+      transform: scale(0.75); /* Scala molto ridotta */
+  }
+  .tile {
+      /* font-size: 16px; */ /* Rimosso */
+      width: 35px; height: 50px;
+      border-radius: 2px;
+  }
+   #game-info { padding: 10px; gap: 10px; }
+   #game-info button { font-size: 0.8em; padding: 10px; }
+   #game-info .game-stat { font-size: 0.85em; }
+   #message-area { font-size: 0.85em; }
+}

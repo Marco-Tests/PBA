@@ -1,0 +1,165 @@
+/* ---------- Layout globale & wrapper pagina ---------- */
+.page-wrapper {
+    background-color: #e7e4da;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E");
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 65px;
+}
+  
+/* ---------- Navbar ---------- */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1d3557;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px 0;
+}
+  
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 80px;
+}
+  
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+  
+.nav-logo {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+  
+/* ---------- TITOLO come LINK ---------- */
+.site-title {
+    /* mantengo le proprietà originali */
+    font-size: 1.1em;
+    font-weight: 700;
+    white-space: nowrap;
+}
+  
+/* Regola **specifica** per sovrascrivere .main-nav a */
+.main-nav .site-title,
+.main-nav .site-title:visited {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    /* qui ripristino font-size e font-weight che venivano sovrascritti */
+    font-size: 1.1em;
+    font-weight: 700;
+}
+  
+.main-nav .site-title:hover,
+.main-nav .site-title:focus {
+    color: #ffffff;
+}
+  
+/* ---------- Links di navigazione ---------- */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+  
+/* questa regola vale per **tutti** gli <a> nella navbar */
+.main-nav a {
+    text-decoration: none;
+    color: #adb5bd;
+    font-size: 1em;
+    font-weight: 400;
+    transition: color .2s ease;
+}
+  
+/* hover solo sui link di .nav-links */
+.main-nav .nav-links a:hover {
+    color: #ffffff;
+}
+  
+/* ---------- Contenitore generico ---------- */
+.container {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 70px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+  
+/* ---------- Footer ---------- */
+.main-footer {
+    background-color: #1d3557;
+    padding: 25px 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    z-index: 5;
+    margin-top: auto;
+}
+  
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #adb5bd;
+    box-sizing: border-box;
+}
+  
+/* ---------- Media query ---------- */
+@media (max-width: 1200px) {
+    .nav-content       { padding: 0 60px; }
+    .container         { padding: 0 60px 60px; }
+    .footer-content    { padding: 0 60px; }
+}
+  
+@media (max-width: 992px) {
+    .nav-content       { padding: 0 40px; }
+    .container         { padding: 0 40px 50px; }
+    .footer-content    { padding: 0 40px; }
+    .site-title        { font-size: 1em; }
+    .nav-links         { gap: 20px; }
+    .main-nav .nav-links a { font-size: 0.95em; }
+}
+  
+@media (max-width: 768px) {
+    .page-wrapper      { padding-top: 56px; }
+    .main-nav          { padding: 8px 0; }
+    .nav-content       { padding: 0 30px; }
+    .container         { padding: 0 30px 40px; }
+    .footer-content    { padding: 0 30px; }
+    .nav-logo          { height: 40px; width: 40px; }
+    .nav-brand         { gap: 10px; }
+    .site-title        { font-size: 0.95em; }
+    .nav-links         { gap: 12px; }
+    .main-nav .nav-links a { font-size: 0.9em; }
+}
+  
+@media (max-width: 480px) {
+    .page-wrapper      { padding-top: 52px; }
+    .main-nav          { padding: 6px 0; }
+    .nav-content       { padding: 0 20px; flex-wrap: wrap; justify-content: center; row-gap: 5px; }
+    .container         { padding: 0 20px 35px; }
+    .footer-content    { padding: 0 20px; font-size: 0.8em; }
+    .nav-logo          { height: 35px; width: 35px; }
+    .nav-brand         { gap: 8px; }
+    .site-title        { font-size: 0.85em; }
+    .nav-links         { gap: 8px; width: 100%; justify-content: center; margin-top: 5px; }
+    .main-nav .nav-links a { font-size: 0.8em; padding: 3px; }
+}
